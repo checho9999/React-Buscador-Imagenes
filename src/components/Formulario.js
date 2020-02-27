@@ -13,7 +13,7 @@ const Formulario = ( { guardarBusqueda } ) => {
         e.preventDefault();
 
         //validamos el termino ingresado por el usuario
-        if(termino.trim() === '') {    
+        if (termino.trim() === '') {    
             //ponemos el error en el state de la app principal
             guardarError(true);
 

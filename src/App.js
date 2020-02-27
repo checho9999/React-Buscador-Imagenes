@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Formulario from './components/Formulario'
+import ListadoImagenes from './components/ListadoImagenes'
 
 function App() {
 
   //State para recibir la actualizacion del termino de busqueda desde el Formulario
   const [busqueda, guardarBusqueda] = useState('');
+  //State para recibir la actualizacion de las imagenes de respuesta de la API
+  const [ imagenes, guardarImagenes] = useState([]);
 
   useEffect(() => {
 
@@ -23,7 +26,9 @@ function App() {
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
 
-      console.log(resultado.hits);
+      //console.log(resultado.hits);
+      //
+      guardarImagenes(resultado.hits);
 
     }
 
@@ -43,6 +48,17 @@ function App() {
           />
 
       </div>
+
+      <div className="row justify-content-center">
+
+          <ListadoImagenes 
+            imagenes={imagenes}
+          />
+
+      </div>
+
+
+
     </div>
   );
 
