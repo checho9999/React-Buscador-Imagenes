@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Error = ( { mensaje } ) => {
     return ( 
@@ -6,4 +7,8 @@ const Error = ( { mensaje } ) => {
      );
 }
  
+Error.propTypes = {
+    titulo: PropTypes.string.isRequired
+}
+
 export default Error;
